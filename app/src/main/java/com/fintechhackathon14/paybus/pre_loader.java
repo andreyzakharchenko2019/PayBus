@@ -17,7 +17,7 @@ public class pre_loader extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(pre_loader.this, auth_activity.class));
+                startActivity(new Intent(pre_loader.this, MainActivity.class));
                 finish();
             }
         }, 3000);
