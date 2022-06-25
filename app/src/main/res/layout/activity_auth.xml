@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="192dp"
+        android:layout_height="222dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="205dp"
@@ -23,7 +23,7 @@
             android:layout_marginTop="19dp"
             android:text="@string/welcome_screen"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="21sp" />
 
         <TextView
             android:id="@+id/phone_number"
@@ -32,16 +32,21 @@
             android:layout_gravity="left"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_medium"
             android:text="@string/phone_number"
             android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:textSize="17sp" />
 
         <EditText
+            android:id="@+id/auth_number"
             android:layout_width="358dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
             android:layout_marginLeft="30dp"
             android:gravity="left"
-            />
+            android:text=""
+            android:textColor="@color/black"
+            android:backgroundTint="@color/red"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="430px"
@@ -49,10 +54,10 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_custom"
-            android:fontFamily="@font/inter"
-            android:textSize="16sp"
+            android:fontFamily="@font/inter_medium"
             android:text="@string/join"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="19sp" />
 
 
     </LinearLayout>

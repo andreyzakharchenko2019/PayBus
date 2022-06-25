@@ -24,8 +24,8 @@
         android:layout_width="67dp"
         android:layout_height="67dp"
         android:layout_below="@+id/logo"
-        android:layout_marginTop="44dp"
         android:layout_centerHorizontal="true"
-        android:indeterminateDrawable="@drawable/loading_circle"/>
+        android:layout_marginTop="80dp"
+        android:indeterminateDrawable="@drawable/loading_circle" />
 
 </RelativeLayout>
