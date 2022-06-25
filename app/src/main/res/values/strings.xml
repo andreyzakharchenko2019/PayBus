@@ -30,4 +30,5 @@
     <string name="texttolem">отправить SMS с кодом терминала TOLEM на номер 2222.\n\n</string>
     <string name="texttulpartitle">Оплата проезда TulparCard:\n</string>
     <string name="texttulpar">отправить SMS с кодом терминала TulparCard на номер 4444.\n\n</string>
+    <string name="payqr">Оплатить по QR-коду</string>
 </resources>
