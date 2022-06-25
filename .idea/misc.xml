@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/PayBus/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.124" />
+        <entry key="..\:/PayBus/app/src/main/res/drawable/button_custom.xml" value="0.151" />
+        <entry key="..\:/PayBus/app/src/main/res/drawable/custom_view.xml" value="0.151" />
+        <entry key="..\:/PayBus/app/src/main/res/drawable/loading_circle.xml" value="0.151" />
+        <entry key="..\:/PayBus/app/src/main/res/font/.xml" value="0.2796296296296296" />
+        <entry key="..\:/PayBus/app/src/main/res/font/inter_medium.xml" value="0.2796296296296296" />
+        <entry key="..\:/PayBus/app/src/main/res/layout/activity_auth.xml" value="0.4" />
+        <entry key="..\:/PayBus/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/PayBus/app/src/main/res/layout/activity_pre_loader.xml" value="0.25416666666666665" />
+        <entry key="..\:/PayBus/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.124" />
         <entry key="..\:/Users/aliha/AndroidStudioProjects/PayBus/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2465" />
         <entry key="..\:/Users/aliha/AndroidStudioProjects/PayBus/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2465" />
         <entry key="..\:/Users/aliha/AndroidStudioProjects/PayBus/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2465" />
