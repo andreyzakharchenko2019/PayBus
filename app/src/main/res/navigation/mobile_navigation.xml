@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_qr_scanner" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.fintechhackathon14.paybus.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_ticket"
+        android:name="com.fintechhackathon14.paybus.ticket.view.TicketFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_ticket" />
 
     <fragment
         android:id="@+id/navigation_notifications"

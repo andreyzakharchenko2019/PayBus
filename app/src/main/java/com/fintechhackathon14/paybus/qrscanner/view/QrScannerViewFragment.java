@@ -57,6 +57,7 @@ public class QrScannerViewFragment extends Fragment implements QrScannerViewCont
                         @Override
                         public void run() {
                             Toast.makeText(activity, result.getText(), Toast.LENGTH_SHORT).show();
+                            qrScannerPresenterContract.parseStringFromQr(result.getText());
                         }
                     });
                 }
