@@ -5,8 +5,6 @@
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="welcome_screen">Добро пожаловать в PayBus QR!</string>
-    <string name="phone_number">Номер телефона</string>
-    <string name="join">Войти</string>
-
+    <string name="some_id">Код подтверждения</string>
+    <string name="sms_">На ваш номер +7 702 777 77 77 отправлен SMS с кодом подтверждения</string>
 </resources>
