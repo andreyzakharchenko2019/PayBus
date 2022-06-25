@@ -20,5 +20,14 @@
     <string name="TextViewbusID">1000089</string>
     <string name="TextViewdateID">24 июня 12:51</string>
     <string name="TextViewsummaID">80</string>
-
+    <string name="number">+7 702 777 77 77</string>
+    <string name="priceHome">1250 ₸</string>
+    <string name="countHome">~15 поездок</string>
+    <string name="titleinfo">Другие способы оплаты</string>
+    <string name="textonaytitle">Оплата проезда ONAY!:\n</string>
+    <string name="textonay">отправить SMS с кодом терминала ONAY! на номер 9909.\n\n</string>
+    <string name="texttolemtitle">Оплата проезда TOLEM:\n</string>
+    <string name="texttolem">отправить SMS с кодом терминала TOLEM на номер 2222.\n\n</string>
+    <string name="texttulpartitle">Оплата проезда TulparCard:\n</string>
+    <string name="texttulpar">отправить SMS с кодом терминала TulparCard на номер 4444.\n\n</string>
 </resources>
