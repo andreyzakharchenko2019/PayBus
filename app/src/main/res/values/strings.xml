@@ -1,9 +1,33 @@
 <resources>
-    <string name="app_name">PayBus</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="app_name">Pay Bus</string>
+    <string name="title_scanner_qr">QR-сканер</string>
+    <string name="title_history">История</string>
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="error_qr">Не верный QR-код, попробуйте снова, или просканируйте корректный QR-код</string>
+    <string name="some_id">Код подтверждения</string>
+    <string name="sms_">На ваш номер +7 702 777 77 77 отправлен SMS с кодом подтверждения</string>
+    <string name="welcome_screen">Добро пожаловать в PayBus QR!</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="join">Войти</string>
+    <string name="tickets">Мои билеты</string>
+    <string name="bus">Автобус</string>
+    <string name="tick_in">Билет на проезд</string>
+    <string name="name_field">Название сервиса:\nКод транспорта:\nДата и время:\nСумма:</string>
+    <string name="TextViewserviceID">ONAY</string>
+    <string name="TextViewbusID">1000089</string>
+    <string name="TextViewdateID">24 июня 12:51</string>
+    <string name="TextViewsummaID">80</string>
+    <string name="number">+7 702 777 77 77</string>
+    <string name="priceHome">1250 ₸</string>
+    <string name="countHome">~15 поездок</string>
+    <string name="titleinfo">Другие способы оплаты</string>
+    <string name="textonaytitle">Оплата проезда ONAY!:\n</string>
+    <string name="textonay">отправить SMS с кодом терминала ONAY! на номер 9909.\n\n</string>
+    <string name="texttolemtitle">Оплата проезда TOLEM:\n</string>
+    <string name="texttolem">отправить SMS с кодом терминала TOLEM на номер 2222.\n\n</string>
+    <string name="texttulpartitle">Оплата проезда TulparCard:\n</string>
+    <string name="texttulpar">отправить SMS с кодом терминала TulparCard на номер 4444.\n\n</string>
+    <string name="payqr">Оплатить по QR-коду</string>
 </resources>

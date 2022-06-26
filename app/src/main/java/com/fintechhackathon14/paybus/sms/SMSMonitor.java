@@ -44,7 +44,7 @@ public class SMSMonitor extends BroadcastReceiver {
     private void startService(String smsBody, Context context, String nameService) {
         Intent mIntent = new Intent(context, SmsService.class);
         mIntent.putExtra(INTENT_SMS_BODY, smsBody);
-        mIntent.putExtra(INTENT_SERVICE_NAME, INTENT_SERVICE_NAME);
+        mIntent.putExtra(INTENT_SERVICE_NAME, nameService);
         context.startService(mIntent);
     }
 

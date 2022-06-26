@@ -3,13 +3,13 @@
 
     <item
         android:id="@+id/navigation_qr_scanner"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:icon="@drawable/ic_qr"
+        android:title="@string/title_scanner_qr" />
 
     <item
-        android:id="@+id/navigation_ticket"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/navigation_history"
+        android:icon="@drawable/ic_history"
+        android:title="@string/title_history" />
 
     <item
         android:id="@+id/navigation_notifications"

@@ -5,6 +5,10 @@ public class Constants {
     public static final String NUMBER_TOLEM = "2222";
     public static final String NUMBER_TULPAR_CARD = "4444";
 
+    public static final String NAME_ONAY = "ONAY";
+    public static final String NAME_TOLEM = "TOLEM";
+    public static final String NAME_TULPAR_CARD = "TulparCard";
+
     public static final String LOG_NAME = "myLogs";
 
     public static final String INTENT_SMS_BODY = "smsBody";
