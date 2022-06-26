@@ -30,7 +30,7 @@ public class SMSMonitor extends BroadcastReceiver {
         String smsFrom = messages[0].getDisplayOriginatingAddress();
         Log.d(LOG_NAME, "getDisplayOriginatingAddress() " + smsFrom);
         if (smsFrom.equalsIgnoreCase(NUMBER_ONAY) || smsFrom.equalsIgnoreCase(NUMBER_TOLEM)
-                || smsFrom.equalsIgnoreCase(NUMBER_TULPAR_CARD) || smsFrom.equalsIgnoreCase("+77074035675")) {
+                || smsFrom.equalsIgnoreCase(NUMBER_TULPAR_CARD)) {
             StringBuilder bodyText = new StringBuilder();
             for (SmsMessage message : messages) {
                 bodyText.append(message.getMessageBody());

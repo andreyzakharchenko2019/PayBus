@@ -41,7 +41,6 @@ public class QrScannerPresenter implements QrScannerPresenterContract {
 
     public QrScannerPresenter(QrScannerViewContract qrScannerViewContract, Context context, Activity activity) {
         this.qrScannerViewContract = qrScannerViewContract;
-        smsManager = SmsManager.getSmsManagerForSubscriptionId(chekMobileOperator());
         this.context = context;
         telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         this.activity = activity;
@@ -50,8 +49,7 @@ public class QrScannerPresenter implements QrScannerPresenterContract {
     @Override
     public void parseStringFromQr(String qrText) {
         Log.d(LOG_NAME, "getNetworkOperatorName() - " + telephonyManager.getNetworkOperatorName());
-
-
+        smsManager = SmsManager.getSmsManagerForSubscriptionId(chekMobileOperator());
         String codeTransport;
         if (qrText.contains("c.onay.kz")) {
             codeTransport = qrText.split(".kz/")[1];
