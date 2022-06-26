@@ -45,13 +45,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void askAllPermission() {
-        ActivityCompat.requestPermissions(this,
-                new String[] {
-                        Manifest.permission.SEND_SMS,
-                        Manifest.permission.READ_SMS,
-                        Manifest.permission.CAMERA,
-                        Manifest.permission.READ_PHONE_STATE
-                },
-                PERMISSION_REQUEST_CODE);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{
+                            Manifest.permission.SEND_SMS,
+                            Manifest.permission.READ_SMS,
+                            Manifest.permission.CAMERA,
+                            Manifest.permission.READ_PHONE_STATE
+                    },
+                    PERMISSION_REQUEST_CODE);
+        }
     }
 }
