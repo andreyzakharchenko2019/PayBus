@@ -3,9 +3,11 @@
     package="com.fintechhackathon14.paybus">
 
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.INTERNET" />
+
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -35,6 +37,8 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
+
+        <service android:name="com.fintechhackathon14.paybus.sms.SmsService" />
     </application>
 
 </manifest>

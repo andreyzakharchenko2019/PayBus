@@ -44,7 +44,7 @@ public class QrScannerViewFragment extends Fragment implements QrScannerViewCont
                              Bundle savedInstanceState) {
         binding = FragmentQrScannerBinding.inflate(inflater, container, false);
         activity = getActivity();
-        qrScannerPresenterContract = new QrScannerPresenter(this);
+        qrScannerPresenterContract = new QrScannerPresenter(this, getContext(), getActivity());
 
         mCodeScanner = new CodeScanner(activity, binding.scannerView);
 
@@ -56,7 +56,6 @@ public class QrScannerViewFragment extends Fragment implements QrScannerViewCont
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(activity, result.getText(), Toast.LENGTH_SHORT).show();
                             qrScannerPresenterContract.parseStringFromQr(result.getText());
                         }
                     });
@@ -109,16 +108,16 @@ public class QrScannerViewFragment extends Fragment implements QrScannerViewCont
                 if (ActivityCompat.shouldShowRequestPermissionRationale(activity,Manifest.permission.CAMERA)){
 
                     new AlertDialog.Builder(activity)
-                            .setTitle("Permission")
-                            .setMessage("Please provide the camera permission for using all the features of the app")
-                            .setPositiveButton("Proceed", new DialogInterface.OnClickListener() {
+                            .setTitle("Разрешение")
+                            .setMessage("Доступ к камере нужен, чтобы приложение мошло сканировать Qr-коды")
+                            .setPositiveButton("Продолжить", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
 
                                     ActivityCompat.requestPermissions(activity,new String[]{Manifest.permission.CAMERA},CAMERA_PERM);
 
                                 }
-                            }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            }).setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
@@ -130,8 +129,8 @@ public class QrScannerViewFragment extends Fragment implements QrScannerViewCont
                 }else {
 
                     new AlertDialog.Builder(getContext())
-                            .setTitle("Permission")
-                            .setMessage("You have denied some permission. Allow all permission at [Settings] > [Permissions]")
+                            .setTitle("Разрешение")
+                            .setMessage("Вы запретили использование камеры. Мы не можем считать QR-код. Необходимо разрешение на использование камеры [Настройки] > [Разрешения]")
                             .setPositiveButton("Settings", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -145,7 +144,7 @@ public class QrScannerViewFragment extends Fragment implements QrScannerViewCont
 
 
                                 }
-                            }).setNegativeButton("No, Exit app", new DialogInterface.OnClickListener() {
+                            }).setNegativeButton("Нет, закрыть приложение", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
@@ -164,5 +163,10 @@ public class QrScannerViewFragment extends Fragment implements QrScannerViewCont
         }
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    public void showError(String textError) {
+        Toast.makeText(getContext(), textError, Toast.LENGTH_LONG).show();
     }
 }

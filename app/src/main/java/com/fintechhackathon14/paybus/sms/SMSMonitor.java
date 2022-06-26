@@ -1,12 +1,11 @@
 package com.fintechhackathon14.paybus.sms;
 
-import static android.provider.ContactsContract.Intents.Insert.ACTION;
-
+import static com.fintechhackathon14.paybus.util.Constants.INTENT_SERVICE_NAME;
 import static com.fintechhackathon14.paybus.util.Constants.LOG_NAME;
 import static com.fintechhackathon14.paybus.util.Constants.NUMBER_ONAY;
 import static com.fintechhackathon14.paybus.util.Constants.NUMBER_TOLEM;
 import static com.fintechhackathon14.paybus.util.Constants.NUMBER_TULPAR_CARD;
-import static com.fintechhackathon14.paybus.util.Constants.SMS_BODY;
+import static com.fintechhackathon14.paybus.util.Constants.INTENT_SMS_BODY;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -31,20 +30,21 @@ public class SMSMonitor extends BroadcastReceiver {
         String smsFrom = messages[0].getDisplayOriginatingAddress();
         Log.d(LOG_NAME, "getDisplayOriginatingAddress() " + smsFrom);
         if (smsFrom.equalsIgnoreCase(NUMBER_ONAY) || smsFrom.equalsIgnoreCase(NUMBER_TOLEM)
-                || smsFrom.equalsIgnoreCase(NUMBER_TULPAR_CARD)) {
+                || smsFrom.equalsIgnoreCase(NUMBER_TULPAR_CARD) || smsFrom.equalsIgnoreCase("+77074035675")) {
             StringBuilder bodyText = new StringBuilder();
             for (SmsMessage message : messages) {
                 bodyText.append(message.getMessageBody());
             }
             String body = bodyText.toString();
             Log.d(LOG_NAME, body);
-            startService(body, context);
+            startService(body, context, smsFrom);
         }
     }
 
-    private void startService(String smsBody, Context context) {
+    private void startService(String smsBody, Context context, String nameService) {
         Intent mIntent = new Intent(context, SmsService.class);
-        mIntent.putExtra(SMS_BODY, smsBody);
+        mIntent.putExtra(INTENT_SMS_BODY, smsBody);
+        mIntent.putExtra(INTENT_SERVICE_NAME, INTENT_SERVICE_NAME);
         context.startService(mIntent);
     }
 

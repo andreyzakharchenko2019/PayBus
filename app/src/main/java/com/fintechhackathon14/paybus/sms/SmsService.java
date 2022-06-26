@@ -1,5 +1,7 @@
 package com.fintechhackathon14.paybus.sms;
 
+import static com.fintechhackathon14.paybus.util.Constants.INTENT_SERVICE_NAME;
+import static com.fintechhackathon14.paybus.util.Constants.INTENT_SMS_BODY;
 import static com.fintechhackathon14.paybus.util.Constants.LOG_NAME;
 
 import android.app.Notification;
@@ -16,6 +18,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.fintechhackathon14.paybus.MainActivity;
 import com.fintechhackathon14.paybus.R;
+import com.fintechhackathon14.paybus.entity.Ticket;
 
 public class SmsService extends Service {
     @Nullable
@@ -26,10 +29,16 @@ public class SmsService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Ticket ticket = new Ticket();
+        ticket.setServiceName(intent.getStringExtra(INTENT_SERVICE_NAME));
 
-        Log.d(LOG_NAME, "onStartCommand");
+        parseTextSms(intent.getStringExtra(INTENT_SMS_BODY));
 
         return START_STICKY;
+    }
+
+    private void parseTextSms(String smsBody) {
+
     }
 
     private void showNotification(String text) {
