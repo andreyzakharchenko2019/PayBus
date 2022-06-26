@@ -48,20 +48,18 @@ public class SmsService extends Service {
         ticket = new Ticket();
         ticket.setServiceName(SERVICE_NAME.get(intent.getStringExtra(INTENT_SERVICE_NAME)));
 
+        Log.d(LOG_NAME, "onStartCommand" + ticket.getServiceName());
         parseTextSms(intent.getStringExtra(INTENT_SMS_BODY), intent.getStringExtra(INTENT_SERVICE_NAME));
 
         return START_STICKY;
     }
 
     private void parseTextSms(String smsBody, String numberOperator) {
+        Log.d(LOG_NAME, "parseTextSms" + ticket.getServiceName());
         if (ticket.getServiceName().equals(NAME_ONAY)) {
-
-        }
-
-        if (ticket.getServiceName().equals(NAME_TULPAR_CARD)) {
             String[] detailSmsBody = smsBody.split("\n");
             ticket.setPriceTicket(detailSmsBody[1].split(" ")[0]);
-            ticket.setCodeTransport(detailSmsBody[3]);
+            ticket.setCodeTransport(detailSmsBody[3].split(" ")[1]);
             SimpleDateFormat format = new SimpleDateFormat();
             format.applyPattern("dd.MM.yyyy HH:mm");
             Date date;
@@ -72,6 +70,28 @@ public class SmsService extends Service {
                 date = new Date();
             }
             ticket.setDateTicket(date.getTime());
+            Log.d(LOG_NAME, "saveindb" + ticket);
+            ticketPresenter.saveTicket(ticket);
+            Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + numberOperator));
+            startActivity(intent);
+        }
+
+        if (ticket.getServiceName().equals(NAME_TULPAR_CARD)) {
+
+            String[] detailSmsBody = smsBody.split("\n");
+            ticket.setPriceTicket(detailSmsBody[1].split(" ")[0]);
+            ticket.setCodeTransport(detailSmsBody[3].split(" ")[1]);
+            SimpleDateFormat format = new SimpleDateFormat();
+            format.applyPattern("dd.MM.yyyy HH:mm");
+            Date date;
+            try {
+                date = format.parse(detailSmsBody[2]);
+            } catch (ParseException e) {
+                e.printStackTrace();
+                date = new Date();
+            }
+            ticket.setDateTicket(date.getTime());
+            Log.d(LOG_NAME, "saveindb" + ticket);
             ticketPresenter.saveTicket(ticket);
             Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + numberOperator));
             startActivity(intent);
