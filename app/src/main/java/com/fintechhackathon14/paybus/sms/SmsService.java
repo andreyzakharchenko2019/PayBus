@@ -58,26 +58,19 @@ public class SmsService extends Service {
         Log.d(LOG_NAME, "parseTextSms" + ticket.getServiceName());
         if (ticket.getServiceName().equals(NAME_ONAY)) {
             String[] detailSmsBody = smsBody.split("\n");
-            ticket.setPriceTicket(detailSmsBody[1].split(" ")[0]);
-            ticket.setCodeTransport(detailSmsBody[3].split(" ")[1]);
+            ticket.setPriceTicket(detailSmsBody[2].split(",")[1].substring(0, 2));
+            ticket.setUrlQr(detailSmsBody[3]);
+            ticket.setCodeTransport(detailSmsBody[3].split(".kz/")[1]);
             SimpleDateFormat format = new SimpleDateFormat();
-            format.applyPattern("dd.MM.yyyy HH:mm");
-            Date date;
-            try {
-                date = format.parse(detailSmsBody[2]);
-            } catch (ParseException e) {
-                e.printStackTrace();
-                date = new Date();
-            }
+            Date date = new Date();
             ticket.setDateTicket(date.getTime());
-            Log.d(LOG_NAME, "saveindb" + ticket);
+            Log.d(LOG_NAME, "saveindb onay" + ticket);
             ticketPresenter.saveTicket(ticket);
-            Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + numberOperator));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ticket.getUrlQr()));
             startActivity(intent);
         }
 
         if (ticket.getServiceName().equals(NAME_TULPAR_CARD)) {
-
             String[] detailSmsBody = smsBody.split("\n");
             ticket.setPriceTicket(detailSmsBody[1].split(" ")[0]);
             ticket.setCodeTransport(detailSmsBody[3].split(" ")[1]);
