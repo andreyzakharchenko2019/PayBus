@@ -67,7 +67,6 @@ public class QrScannerPresenter implements QrScannerPresenterContract {
     public void sendSMS(String codeTransport, String numberOfOperator) {
         Log.d(LOG_NAME, codeTransport + " " + numberOfOperator);
         smsManager.sendTextMessage(numberOfOperator, null, codeTransport, null, null);
-        activity.finish();
     }
 
     private int chekMobileOperator() {
