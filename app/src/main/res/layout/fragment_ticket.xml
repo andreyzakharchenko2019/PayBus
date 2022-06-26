@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ticket.view.TicketFragment"
+    android:background="@drawable/back">
+
+
+    <ImageView
+        android:id="@+id/qr_ticket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:itemIconSize="27dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/white"
+        app:itemTextColor="@drawable/item_selector"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <TextView
+        android:id="@+id/some_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal|top"
+        android:text="@string/tickets"
+        android:textAppearance="@style/some_id" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/some_id"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="21dp"
+        android:layout_width="371dp"
+        android:layout_height="550dp" />
+
+    <LinearLayout
+        android:id="@+id/card1"
+        android:layout_width="371dp"
+        android:layout_height="160dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="93dp"
+        android:background="@drawable/card_history"
+        android:elevation="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/TextViewbusID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/bus"
+            android:textSize="24dp"
+            android:paddingLeft="5dp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/tick_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/inter"
+            android:text="@string/tick_in"
+            android:textSize="14dp"
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/NameFieldTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/inter"
+                android:text="@string/name_field"
+                android:textSize="14dp"
+                android:paddingLeft="5dp"
+                android:layout_marginLeft="5dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:fontFamily="@font/inter"
+                    android:textSize="14dp"
+                    android:id="@+id/TextViewserviceID"
+                    android:text="@string/TextViewserviceID"
+                    android:layout_gravity="left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:fontFamily="@font/inter"
+                    android:textSize="14dp"
+                    android:gravity="right"
+                    android:id="@+id/busIDTextView"
+                    android:text="@string/TextViewbusID"
+                    android:layout_gravity="left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:fontFamily="@font/inter"
+                    android:textSize="14dp"
+                    android:gravity="right"
+                    android:id="@+id/TextViewdateID"
+                    android:text="@string/TextViewdateID"
+                    android:layout_gravity="left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:fontFamily="@font/inter"
+                    android:textSize="14dp"
+                    android:gravity="right"
+                    android:id="@+id/TextViewsummaID"
+                    android:text="@string/TextViewsummaID"
+                    android:layout_gravity="left" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
