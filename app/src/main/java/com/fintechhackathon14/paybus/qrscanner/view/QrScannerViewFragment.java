@@ -12,6 +12,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.provider.Settings;
 import android.view.LayoutInflater;
@@ -22,8 +23,10 @@ import android.widget.Toast;
 import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.DecodeCallback;
 import com.fintechhackathon14.paybus.databinding.FragmentQrScannerBinding;
+import com.fintechhackathon14.paybus.entity.Ticket;
 import com.fintechhackathon14.paybus.qrscanner.presenter.QrScannerPresenter;
 import com.fintechhackathon14.paybus.qrscanner.presenter.QrScannerPresenterContract;
+import com.fintechhackathon14.paybus.ticket.model.TicketsDatabase;
 import com.google.zxing.Result;
 
 import org.jetbrains.annotations.NotNull;
@@ -47,6 +50,10 @@ public class QrScannerViewFragment extends Fragment implements QrScannerViewCont
         qrScannerPresenterContract = new QrScannerPresenter(this, getContext(), getActivity());
 
         mCodeScanner = new CodeScanner(activity, binding.scannerView);
+
+       TicketsDatabase ticketsDatabase = Room.databaseBuilder(getContext(), TicketsDatabase.class, "ticket_db")
+                .allowMainThreadQueries()
+                .build();
 
         askPermission();
         if (isCameraPermission) {

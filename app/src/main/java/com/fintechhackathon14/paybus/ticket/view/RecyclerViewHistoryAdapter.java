@@ -1,6 +1,12 @@
 package com.fintechhackathon14.paybus.ticket.view;
 
+import static com.fintechhackathon14.paybus.util.Constants.NAME_ONAY;
+import static com.fintechhackathon14.paybus.util.Constants.NAME_TULPAR_CARD;
+import static com.fintechhackathon14.paybus.util.Constants.NUMBER_TULPAR_CARD;
+
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +69,19 @@ public class RecyclerViewHistoryAdapter extends RecyclerView.Adapter<RecyclerVie
         Date date = new Date(ticket.getDateTicket());
         holder.date.setText(dateFormat.format(date));
         holder.price.setText(ticket.getPriceTicket() + " ₸");
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ticket.getServiceName().equals(NAME_TULPAR_CARD)) {
+                    Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + NUMBER_TULPAR_CARD));
+                    activity.startActivity(intent);
+                }
+                if (ticket.getServiceName().equals(NAME_ONAY)) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ticket.getUrlQr()));
+                    activity.startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override

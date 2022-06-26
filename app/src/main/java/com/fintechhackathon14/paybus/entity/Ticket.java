@@ -1,6 +1,5 @@
 package com.fintechhackathon14.paybus.entity;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -14,17 +13,19 @@ public class Ticket {
     private String codeTransport;
     private String priceTicket;
     private long dateTicket;
+    private String urlQr;
 
     @Ignore
     public Ticket() {
     }
 
-    public Ticket(long id, String serviceName, String codeTransport, String priceTicket, long dateTicket) {
+    public Ticket(long id, String serviceName, String codeTransport, String priceTicket, long dateTicket, String urlQr) {
         this.id = id;
         this.serviceName = serviceName;
         this.codeTransport = codeTransport;
         this.priceTicket = priceTicket;
         this.dateTicket = dateTicket;
+        this.urlQr = urlQr;
     }
 
     public String getServiceName() {
@@ -66,4 +67,26 @@ public class Ticket {
     public void setId(long id) {
         this.id = id;
     }
+
+    public String getUrlQr() {
+        return urlQr;
+    }
+
+    public void setUrlQr(String urlQr) {
+        this.urlQr = urlQr;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "id=" + id +
+                ", serviceName='" + serviceName + '\'' +
+                ", codeTransport='" + codeTransport + '\'' +
+                ", priceTicket='" + priceTicket + '\'' +
+                ", dateTicket=" + dateTicket +
+                ", urlQr=" + urlQr +
+                '}';
+    }
 }
+
+
